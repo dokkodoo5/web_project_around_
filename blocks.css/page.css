@@ -1,7 +1,7 @@
 .page{
 
     max-width: 880px;
-    border: solid white;
+   
     margin-left: auto;
     margin-right: auto;
     
@@ -11,12 +11,22 @@ body{background-color: black;}
 header{
     color: white;
 }
+h1{
+    display: flex;
+    font-size: 4em;
+}
+.textsmall{
+    font-size: 1rem;
+    color: red;
+    
+}
 .profile{
     display: flex;
     flex-direction: row;
-border: solid blue;
+
 color: white;
 }
+
 .image{
     max-width: 127px;
     max-height: 127px;
@@ -26,9 +36,200 @@ color: white;
 .profile_info{
     margin-right: auto;
 }
+.chance{
+    display: flex;
+}
 .post{
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2. 1fr);
-    border: solid red;
+    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+}
+
+.edit{
+    border: none;
+    background-color: black;
+    padding: 0;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: auto;
+}
+.edit:hover{
+    opacity: 0.5;
+}
+.addbutton{
+    border:solid white;
+    background-color:black;
+    padding: 0;
+    cursor: pointer;
+   height: 50px;
+   width:150px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-size: 2rem;
+
+}
+
+.addbutton:hover{
+    opacity: 0.5;
+}
+.container_grid{
+    border-radius: 50%;
+
+}
+.galery_image{
+    width: 282px;
+    max-height: 282px;
+    margin-top: 10px;
+    background-color: white;
+}
+.pieimage{
+    margin-top: 0;
+    max-width: 282px;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    
+    
+   
+}
+.spot{
+    margin-top: 25px;
+    
+    margin-left: 10px;
+    color: black;
+    
+}
+.heart{
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+   
+   color:black;
+    
+    font-size: 3em;
+}
+
+
+.heart:hover{
+    opacity: 0.5;
+}
+.heartt{
+   
+    
+}
+.paragraps{
+    color: rgb(128, 128, 128);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .profile{
+        display: flex;
+        flex-direction: column;
+    
+    color: white;
+    }
+    
+    .addbutton {
+        height: 50px;
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    
+  }
+  .image{
+    margin: auto;
+  }
+  .profile_info{
+    margin: auto;
+}
+ .container_grid{
+    margin-left: auto;
+    margin-right: auto;
+ }
+}
+
+
+/* popup */
+
+
+.popup {
+    position: fixed;
+    margin: auto;
+    max-width: 430px;
+    max-height: 330px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+
+ 
+}
+
+.cerrar {
+    position: absolute;
+    top: -20px; /* Ajusta la posición vertical fuera del diálogo */
+    right: -20px; /* Ajusta la posición horizontal fuera del diálogo */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    color: #555;
+    z-index: 1100; /* Asegura que el botón esté encima del diálogo */
+}
+
+.popup h3 {
+    margin-bottom:35px ;
+    font-size: 2em;
+}
+
+.popup__form {
+    
+}
+
+.popup input[type="text"],
+.popup button {
+ 
+    width: calc(100% - 30px); 
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border-bottom-color: #a0a0a0;
+    border-top-style:unset;
+    border-left-style: unset;
+    border-right-style: unset;
+  
+}
+
+.popup button[type="submit"] {
+    background-color: black;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.popup button[type="submit"]:hover {
+    background-color: #3d3d3d;
+}
+#popup::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
 }

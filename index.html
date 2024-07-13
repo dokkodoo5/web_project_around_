@@ -4,31 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/blocks.css/page.css">
-    <title>Document</title>
+    <title>explorer</title>
 </head>
 <body>
     <div class="page">
         <header>
-            <h1>Around<span>THE U.S</span></h1>
+            <h1>Around<span class="textsmall">THE U.S</span></h1>
             <hr>
         </header>
         <div class="profile">
             <img src="/IMG_7799.JPEG" alt="" class="image">
             <div class="profile_info">
-                <h2 class="name">JACques Cousteau</h2>
-                <p class="caracter">Explorador</p>
-                <button class="edit"></button>
+              <div class="chance">
+                <h2 id="person" class="person">JACques Cousteau</h2>
+                <button id="edit" class="edit"><<img src="/images/Edit Button.svg" alt=""></button>
             </div>
-            <button class="addbutton"></button>
+                <p class="caracter">Explorador</p> 
+                <dialog id="popup" class="popup">
+                    <button id="cerrar" type="button" class="cerrar"> X </button>
+                    <h3>Editar perfil</h3>
+                    <form class="popup__form" name="registrer">
+                      <input type="text" name="name" placeholder="Nombre" id="name">
+                      <input type="text" name="breed" placeholder="acerca de mi" id="caracteristica">
+                      <button id="save" type="submit" class="save">Guardar</button>
+                    </form>
+                </dialog>
+            </div>
+            <button class="addbutton">+ </button>
         </div>
         <div class="post">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+            <div class="container_grid"> 
+                 <img src="/images/kirill-pershin-.jpg" alt="Montañas calvas" 
+                 class="galery_image"><div class="pieimage"><h2 class="spot">Montañas calvas</h2>
+                    <button class="heart">  <span class="heartt">&hearts;</span></button></div>
+                 
+                </div>
+            <div class="container_grid">
+               <img src="/images/kirill-pershin-1088404-.jpg" alt="Valle de Yosemite"
+                class="galery_image"><div class="pieimage"><h2 class="spot"> Valle de yosemite</h2>
+                    <button class="heart">  <span class="heartt">&heartsuit;</span></button></div>
+                 
+                </div>
+            <div class="container_grid"> 
+                <img src="/images/kirill-pershin-1088404-unsplash.jpg" alt="Lago di Braise" 
+                class="galery_image"><div class="pieimage"><h2 class="spot">Lago di Braise</h2>
+                    <button class="heart">  <span class="heartt">&hearts;</span></button></div>
+            </div>
+            <div class="container_grid"> 
+                <img src="/images/kirill-pershin-1404681-unsplash.jpg" alt="Latemar" 
+                class="galery_image"> <div class="pieimage"><h2 class="spot"> Latemar</h2>
+                    <button class="heart">  <span class="heartt">&hearts;</span></button></div>
+                
+            </div>
+            <div class="container_grid"> 
+                <img src="/images/kirill-pershin-1556355-unsplash.jpg" alt="Vanois National" 
+                class="galery_image"><div class="pieimage"> <h2 class="spot">Vanois National</h2>
+                    <button class="heart">  <span class="heartt">&hearts;</span></button></div>
+               
+            </div>
+           <div class="container_grid"> 
+            <img src="/images/krill.jpg" alt="Lago Louise" 
+            class="galery_image"><div class="pieimage"><h2 class="spot">Lago Louise</h2>
+                <button class="heart">  <span class="heartt">&hearts;</span></button></div>
+             
+            </div>
         </div>
+        <p class="paragraps">©DoKKoDo</p>
     </div>
+    <script src="/app.js"></script>
 </body>
 </html>
