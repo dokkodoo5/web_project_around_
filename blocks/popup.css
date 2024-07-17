@@ -1,0 +1,69 @@
+.popup {
+
+  margin: auto;
+  max-width: 430px;
+  max-height: 330px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ overflow: visible;
+  border-radius: 10px;
+
+position: relative;
+
+}
+
+.cerrar {
+  position: absolute;
+ top: -40px;
+ right: -40px;
+  background: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
+
+
+}
+
+
+h3 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.popup__form {
+
+}
+
+.popup input[type="text"],
+.save {
+
+  width: calc(100% - 30px);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border-bottom-color: #a7a7a7;
+  border-top-style:unset;
+  border-left-style: unset;
+  border-right-style: unset;
+
+}
+
+.save{
+  background-color: rgb(7, 4, 4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.save:hover {
+  background-color: #3d3d3d;
+}
+#popup::backdrop{
+  background-color: rgba(0, 0, 0, 0.5);
+}

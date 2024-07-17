@@ -1,0 +1,74 @@
+.post{
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+}
+
+
+.addbutton{
+  border:solid white;
+  background-color:black;
+  padding: 0;
+  cursor: pointer;
+ height: 50px;
+ width:150px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  font-size: 2rem;
+
+}
+
+.addbutton:hover{
+  opacity: 0.5;
+}
+.grid{
+  border-radius: 50%;
+
+}
+.galery{
+  width: 282px;
+  max-height: 282px;
+  margin-top: 10px;
+  background-color: white;
+}
+.pieimage{
+  margin-top: 0;
+  max-width: 282px;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+
+
+
+}
+.spot{
+  margin-top: 25px;
+
+  margin-left: 10px;
+  color: black;
+
+}
+.heart{
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+
+ color:black;
+
+  font-size: 3em;
+}
+
+
+.heart:hover{
+  opacity: 0.5;
+}
+.heartt{
+
+
+}

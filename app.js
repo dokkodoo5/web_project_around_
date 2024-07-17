@@ -20,31 +20,39 @@ const h2Person = document.getElementById('person');
 const pCaracter = document.querySelector('.caracter');
 
 
-// cambio de informacion 
+// cambio de informacion
 EditarPerfil.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    
+
     const nuevoNombre = inputNombre.value.trim();
     const nuevaCaracteristica = inputCaracteristica.value.trim();
 
-    // la funcion textcontent reemplaza el contenido 
+    // la funcion textcontent reemplaza el contenido
     h2Person.textContent = nuevoNombre;
     pCaracter.textContent = nuevaCaracteristica;
 
-   
+
     dialogPopup.close();
 });
 
-const heartButton = document.querySelector('.heartt');
-let esHearts = true;
+document.addEventListener('DOMContentLoaded', function() {
+  const heartButtons = document.querySelectorAll('.heart');
 
-heartButton.addEventListener('click',function(){
-    if(esHearts){
-        this.innerHTML='♡';
-    }else{
-        this.innerHTML='&hearts;';
-    }
-    esHearts = !esHearts;
-})
+  heartButtons.forEach(function(heartButton) {
+      let isHeartFull = false;
+
+      heartButton.addEventListener('click', function() {
+          const heartSymbol = this.querySelector('.heart-symbol');
+
+          if (isHeartFull) {
+              heartSymbol.innerHTML = '&#x2661;';
+          } else {
+              heartSymbol.innerHTML = '&hearts;';
+          }
+
+          isHeartFull = !isHeartFull;
+      });
+  });
+});
 
