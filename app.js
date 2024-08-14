@@ -18,8 +18,8 @@ const templateGrid = document.getElementById("template-grid");
 const post = document.querySelector(".post");
 const cerrarImg = document.getElementById("cerrarImg");
 const piemodal = document.getElementById("piemodal");
-let title = document.getElementById('Title').value;
-  let url = document.getElementById('Url').value;
+const title = document.getElementById('Title').value;
+const url = document.getElementById('Url').value;
 
 const initialCards = [
   {
@@ -61,7 +61,7 @@ function createElement(title, link) {
 
   // Añadir el evento de clic para abrir el modal
   img.addEventListener('click', function() {
-    openModal(link);
+    openModal(link, title);
   });
 
   // Añadir el evento de clic para eliminar la tarjeta
@@ -86,14 +86,17 @@ initialCards.forEach(card => {
   createElement(card.name, card.link);
 });
 
-// Añadir una nueva tarjeta a la lista
+// Añadir una nueva tarjeta mediante el dialog del +
 popupplace.addEventListener('submit', function(event) {
   event.preventDefault(); //
+  const title = document.getElementById('Title').value;
+  const url = document.getElementById('Url').value;
+  const newCards ={ name: title, link: url };
 
 
 
-  if (title && url) {
-    initialCards.unshift({ name: title, link: url });
+  if (title || url) {
+    initialCards.unshift(newCards);
     createElement(title, url);
     popupplace.close();
   } else {
@@ -108,7 +111,7 @@ function openModal(imageUrl, title) {
 
 
   modalImage.src = imageUrl;
-  piemodal.innerText = title;
+  piemodal.textContent = title;
   modal.style.display = "block";
 }
 
