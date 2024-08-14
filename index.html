@@ -7,6 +7,7 @@
     <meta name="keywords" content="travel, USA">
     <link rel="stylesheet" href="/pages/index.css">
 
+
     <title>Travel</title>
 </head>
 <body>
@@ -33,52 +34,42 @@
                     </form>
                 </dialog>
             </div>
-            <button class="addbutton">+ </button>
+            <button id="newplace" class="addbutton">+ </button>
+            <dialog id="popupplace" class="popupplace">
+                <button id="cerrarplace" type="button" class="cerrar"> X </button>
+                <h3>New Place</h3>
+                <form class="popup__form" name="registrer">
+                  <input type="text" name="name" placeholder="Tilte" id="Title" class="place">
+                  <input type="url" name="breed" placeholder="Image URL" id="Url" class="place">
+                  <button id="save" type="submit" class="save">Save</button>
+                </form>
+            </dialog>
         </div>
-        <div class="post">
+        <!--aqui se insertara el contenido del template-->
+        <div class="post"> </div>
+        <template id="template-grid">
+
+
           <div class="grid">
-            <img src="/images/kirill-pershin-.jpg" alt="Montañas calvas" class="galery">
+            <button class="btnbin"  id="delete-1"></button>
+            <img src="/images/kirill-pershin-.jpg" alt="Montañas calvas" id="gallery" class="galery" onclick="openModal('/images/kirill-pershin-.jpg')">
             <div class="pieimage">
                 <h2 class="spot">Montañas calvas</h2>
                 <button class="heart"><span class="heart-symbol">&#x2661;</span></button>
             </div>
         </div>
-        <div class="grid">
-            <img src="/images/kirill-pershin-1088404-.jpg" alt="Valle de Yosemite" class="galery">
-            <div class="pieimage">
-                <h2 class="spot">Valle de Yosemite</h2>
-                <button class="heart"><span class="heart-symbol">&#x2661;</span></button>
-            </div>
-        </div>
-        <div class="grid">
-            <img src="/images/kirill-pershin-1088404-unsplash.jpg" alt="Lago di Braise" class="galery">
-            <div class="pieimage">
-                <h2 class="spot">Lago di Braise</h2>
-                <button class="heart"><span class="heart-symbol">&#x2661;</span></button>
-            </div>
-        </div>
-        <div class="grid">
-            <img src="/images/kirill-pershin-1404681-unsplash.jpg" alt="Latemar" class="galery">
-            <div class="pieimage">
-                <h2 class="spot">Latemar</h2>
-                <button class="heart"><span class="heart-symbol">&#x2661;</span></button>
-            </div>
-        </div>
-        <div class="grid">
-            <img src="/images/kirill-pershin-1556355-unsplash.jpg" alt="Vanois National" class="galery">
-            <div class="pieimage">
-                <h2 class="spot">Vanois National</h2>
-                <button class="heart"><span class="heart-symbol">&#x2661;</span></button>
-            </div>
-        </div>
-        <div class="grid">
-            <img src="/images/krill.jpg" alt="Lago Louise" class="galery">
-            <div class="pieimage">
-                <h2 class="spot">Lago Louise</h2>
-                <button class="heart"><span class="heart-symbol">&#x2661;</span></button>
-            </div>
-        </div>
-        </div>
+
+        </template>
+
+        <dialog id="myModal" class="modal">
+          <div class="content-images"> <img class="modal-content" id="modalImage">
+            <button id="cerrarImg" type="button" class="close"> X </button>
+            <p class="piemodal"  id="piemodal">esto tiene que cambiar</p>
+          </div>
+            </dialog>
+
+
+
         <p class="paragraps">©DoKKoDo</p>
     </div>
     <script src="/app.js"></script>

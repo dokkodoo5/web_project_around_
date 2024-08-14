@@ -18,6 +18,11 @@ color: white;
   display: flex;
 }
 
+.person{
+text-overflow:ellipsis;}
+.caracter{
+  text-overflow: ellipsis;
+}
 
 
 .edit{
