@@ -13,7 +13,14 @@
 position: relative;
 
 }
+.popup__input_type_error {
+  border-color: red;
+}
 
+.save_inactive {
+  background-color: #ccc; /* O el color que desees para el botón inactivo */
+  cursor: not-allowed;
+}
 .cerrar {
   position: absolute;
  top: -40px;
@@ -97,6 +104,12 @@ position: relative;
   border-left-style: unset;
   border-right-style: unset;
 
+}
+.Title-error,
+.Url-error,
+.name-error,
+.error-messenge{
+  color:red
 }
 
 .save{

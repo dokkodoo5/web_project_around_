@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
             <hr>
         </header>
         <div class="profile">
-            <img src="/IMG_7799.JPEG" alt="" class="image">
+            <img src="/images/profile.jpg" alt="foto de perfil" class="image">
             <div class="info">
               <div class="chance">
                 <h2 id="person" class="person">JACques Cousteau</h2>
@@ -28,9 +28,11 @@
                     <button id="cerrar" type="button" class="cerrar"> X </button>
                     <h3>Editar perfil</h3>
                     <form class="popup__form" name="registrer">
-                      <input type="text" name="name" placeholder="Nombre" id="name">
-                      <input type="text" name="breed" placeholder="acerca de mi" id="caracteristica">
-                      <button id="save" type="submit" class="save">Guardar</button>
+                      <input type="text" name="name" placeholder="Nombre" id="name" required minlength="2" maxlength="40">
+                      <span class="name-error"></span>
+                      <input type="text" name="breed" placeholder="acerca de mi" id="caracteristica" required minlength="2" maxlength="200">
+                      <span class="caracteristica-error error-messenge"></span>
+                      <button id="save" type="submit" class="save" >Guardar</button>
                     </form>
                 </dialog>
             </div>
@@ -38,14 +40,18 @@
             <dialog id="popupplace" class="popupplace">
                 <button id="cerrarplace" type="button" class="cerrar"> X </button>
                 <h3>New Place</h3>
-                <form class="popup__form" name="registrer">
-                  <input type="text" name="name" placeholder="Tilte" id="Title" class="place">
-                  <input type="url" name="breed" placeholder="Image URL" id="Url" class="place">
+                <form class="popup__form" name="placeForm">
+                  <input type="text" name="title" placeholder="Tilte" id="Title" class="place" required minlength="2" maxlength="40">
+                  <span class="Title-error"></span> <!-- Cambiado para que coincida con el id -->
+
+                  <input type="url" required name="breed" placeholder="Image URL" id="Url" class="place" >
+                  <span class="Url-error"></span> <!-- Cambiado para que coincida con el id -->
+
                   <button id="save" type="submit" class="save">Save</button>
                 </form>
             </dialog>
         </div>
-        <!--aqui se insertara el contenido del template-->
+
         <div class="post"> </div>
         <template id="template-grid">
 

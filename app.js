@@ -1,5 +1,6 @@
 const edit = document.querySelector('#edit');
 const popup = document.querySelector('#popup');
+
 const cerraredit = document.querySelector('#cerrar');
 const addplace = document.querySelector('#newplace');
 const popupplace = document.querySelector('#popupplace');
@@ -48,6 +49,95 @@ const initialCards = [
   }
 ];
 
+
+// Funciones de mostrar y ocultar errores
+const showInputError = (formElement, inputElement, errorMessage, settings) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(settings.inputErrorClass);
+  errorElement.textContent = errorMessage;
+};
+
+const hideInputError = (formElement, inputElement, settings) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(settings.inputErrorClass);
+  errorElement.textContent = '';
+};
+
+// Función para verificar la validez de los campos de entrada
+const checkInputValidity = (formElement, inputElement, settings) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage, settings);
+  } else {
+    hideInputError(formElement, inputElement, settings);
+  }
+};
+
+// Función para agregar event listeners a los inputs del formulario
+const setEventListeners = (formElement, settings) => {
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      checkInputValidity(formElement, inputElement, settings);
+      validateForm(formElement, settings); // Validar el formulario después de cada entrada
+    });
+  });
+};
+
+// Activación/desactivación del botón de guardar
+const validateForm = (formElement, settings) => {
+  const isFormValid = formElement.checkValidity();
+  const saveButton = formElement.querySelector(settings.submitButtonSelector);
+  saveButton.disabled = !isFormValid;
+  saveButton.classList.toggle('save_inactive', !isFormValid);
+};
+
+// Configuración y uso de las funciones
+const settings = {
+  inputSelector: 'input',
+  inputErrorClass: 'popup__input_type_error',
+  submitButtonSelector: '.save',
+};
+
+const profileForm = document.querySelector('.popup__form[name="registrer"]');
+const placeForm = document.querySelector('.popup__form[name="placeForm"]'); // Ajusta el nombre del formulario
+
+// Validar y establecer event listeners en ambos formularios
+setEventListeners(profileForm, settings);
+setEventListeners(placeForm, settings);
+
+// Validación en tiempo real para ambos formularios
+profileForm.addEventListener('input', () => validateForm(profileForm, settings));
+placeForm.addEventListener('input', () => validateForm(placeForm, settings));
+
+// Evento para el envío del formulario de perfil
+profileForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  if (profileForm.querySelector(settings.submitButtonSelector).disabled) {
+    return;
+  }
+
+  const nuevoNombre = inputNombre.value.trim();
+  const nuevaCaracteristica = inputCaracteristica.value.trim();
+
+  h2Person.textContent = nuevoNombre;
+  pCaracter.textContent = nuevaCaracteristica;
+
+  popup.close();
+});
+
+// Evento para el envío del formulario de imagen
+placeForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  if (placeForm.querySelector(settings.submitButtonSelector).disabled) {
+    return;
+  }
+
+  const title = document.getElementById('Title').value.trim();
+  const url = document.getElementById('Url').value.trim();
+
+  createElement(title, url);
+  popupplace.close();
+});
 // Función para crear una tarjeta a partir de una tarjeta jaja
 function createElement(title, link) {
   const template = document.getElementById("template-grid");
@@ -74,12 +164,11 @@ function createElement(title, link) {
 }
 
 
-
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+});
 
 // esto agrega las tarjetas iniciales
 initialCards.forEach(card => {
@@ -119,25 +208,64 @@ function openModal(imageUrl, title) {
 
 // Funciones para manejar los popups
 
+const closeOnEsc = (evt) => {
+  if (evt.key === "Escape") {
+    if (popup.hasAttribute('open')) {
+      popup.close();
+    }
+    if (popupplace.hasAttribute('open')) {
+      popupplace.close();
+    }
+    if (modal.style.display === "block") { // Cerrar modal si está visible
+      modal.style.display = "none";
+    }
+  }
+};
+
+// Función para cerrar popups al hacer clic fuera de ellos
+const closeOnClickOutside = (event) => {
+  if (event.target === popup) {
+    popup.close();
+  }
+  if (event.target === popupplace) {
+    popupplace.close();
+  }
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Asignar el evento 'keydown' para cerrar los popups con 'Escape'
+document.addEventListener("keydown", closeOnEsc);
+
+// Asignar el evento 'click' para cerrar los popups al hacer clic fuera de ellos
+window.addEventListener("click", closeOnClickOutside);
+
+// Funciones para manejar los popups
 
 cerrarImg.addEventListener('click', () => {
   modal.style.display = "none";
+  document.removeEventListener("keydown", closeOnEsc);
 });
 
 addplace.addEventListener("click", () => {
   popupplace.showModal();
+  document.addEventListener("keydown", closeOnEsc);
 });
 
 cerrarplace.addEventListener("click", () => {
   popupplace.close();
+  document.removeEventListener("keydown", closeOnEsc);
 });
 
 edit.addEventListener("click", () => {
   popup.showModal();
+  document.addEventListener("keydown", closeOnEsc);
 });
 
 cerraredit.addEventListener("click", () => {
   popup.close();
+  document.removeEventListener("keydown", closeOnEsc);
 });
 
 // Cambio de información del perfil
@@ -173,3 +301,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+//cerrar formularios haciendoclick afuera, y se le pueden añadir futuros formuarios

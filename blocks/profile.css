@@ -19,9 +19,12 @@ color: white;
 }
 
 .person{
+  overflow: hidden;
 text-overflow:ellipsis;}
+
 .caracter{
   text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 
