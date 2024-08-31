@@ -3,5 +3,4 @@
 
 # https://github.com/dokkodoo5
 
-#galeria de lugares en los campos de estados unidos en distintos estados 
-#crea tu perfil y muetrsanos un poco de ti 
+#añadimos una seri de funcionalidades que estan interconectadas, para el manejo de los popups entre ellas el cierre de lod popups con la tecla ESC, precionando en el background, o con el boton de la x, adicionalmente añadimios una verificacion a cada formulario.
