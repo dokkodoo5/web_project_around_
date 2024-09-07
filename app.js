@@ -301,5 +301,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
-//cerrar formularios haciendoclick afuera, y se le pueden añadir futuros formuarios
