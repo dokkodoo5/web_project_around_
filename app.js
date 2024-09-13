@@ -39,8 +39,118 @@ placeFormHandler.setSubmitAction((event) => {
   }
 });
 
+<<<<<<< HEAD
 // Render initial cards
 initialCards.forEach(cardData => {
   const card = new Card(cardData.name, cardData.link);
   document.querySelector('.post').appendChild(card.generateCard());
+=======
+
+function openModal(imageUrl, title) {
+
+
+
+
+  modalImage.src = imageUrl;
+  piemodal.textContent = title;
+  modal.style.display = "block";
+}
+
+
+
+// Funciones para manejar los popups
+
+const closeOnEsc = (evt) => {
+  if (evt.key === "Escape") {
+    if (popup.hasAttribute('open')) {
+      popup.close();
+    }
+    if (popupplace.hasAttribute('open')) {
+      popupplace.close();
+    }
+    if (modal.style.display === "block") { // Cerrar modal si está visible
+      modal.style.display = "none";
+    }
+  }
+};
+
+// Función para cerrar popups al hacer clic fuera de ellos
+const closeOnClickOutside = (event) => {
+  if (event.target === popup) {
+    popup.close();
+  }
+  if (event.target === popupplace) {
+    popupplace.close();
+  }
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Asignar el evento 'keydown' para cerrar los popups con 'Escape'
+document.addEventListener("keydown", closeOnEsc);
+
+// Asignar el evento 'click' para cerrar los popups al hacer clic fuera de ellos
+window.addEventListener("click", closeOnClickOutside);
+
+// Funciones para manejar los popups
+
+cerrarImg.addEventListener('click', () => {
+  modal.style.display = "none";
+  document.removeEventListener("keydown", closeOnEsc);
+});
+
+addplace.addEventListener("click", () => {
+  popupplace.showModal();
+  document.addEventListener("keydown", closeOnEsc);
+});
+
+cerrarplace.addEventListener("click", () => {
+  popupplace.close();
+  document.removeEventListener("keydown", closeOnEsc);
+});
+
+edit.addEventListener("click", () => {
+  popup.showModal();
+  document.addEventListener("keydown", closeOnEsc);
+});
+
+cerraredit.addEventListener("click", () => {
+  popup.close();
+  document.removeEventListener("keydown", closeOnEsc);
+});
+
+// Cambio de información del perfil
+EditarPerfil.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const nuevoNombre = inputNombre.value.trim();
+  const nuevaCaracteristica = inputCaracteristica.value.trim();
+
+  h2Person.textContent = nuevoNombre;
+  pCaracter.textContent = nuevaCaracteristica;
+
+  dialogPopup.close();
+});
+
+// Función para manejar los botones de corazón
+document.addEventListener('DOMContentLoaded', function() {
+  const heartButtons = document.querySelectorAll('.heart');
+
+  heartButtons.forEach(function(heartButton) {
+    let isHeartFull = false;
+
+    heartButton.addEventListener('click', function() {
+      const heartSymbol = this.querySelector('.heart-symbol');
+
+      if (isHeartFull) {
+        heartSymbol.innerHTML = '&#x2661;';
+      } else {
+        heartSymbol.innerHTML = '&hearts;';
+      }
+
+      isHeartFull = !isHeartFull;
+    });
+  });
+>>>>>>> 3144de7ddc82983986cd2636a2c86611aeb2148a
 });
